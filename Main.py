@@ -1,9 +1,14 @@
 import requests
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+API_KEY = os.getenv("TMDB_API_KEY")
 
 movie_id = "1234731"
 api_url = f"https://api.themoviedb.org/3/movie/{movie_id}"
 
-params = {"api_key": "7fb66498be857a60dd03df75d609ea42", 
+params = {"api_key": API_KEY, 
           "language": "pt-BR"}
 
 response = requests.get(api_url, params=params)
